@@ -6,7 +6,7 @@ import java.awt.*;
 public class Cat {
     private String id;
     private String url;
-    private String apiKey = "06eadb5f-9094-4bc4-b2ae-9a8ec241c4ab";
+    private final String apiKey = "06eadb5f-9094-4bc4-b2ae-9a8ec241c4ab";
     private int width;
     private int height;
     private ImageIcon image;
@@ -44,10 +44,6 @@ public class Cat {
 
     public String getApiKey() {
         return apiKey;
-    }
-
-    public void setApiKey(String apiKey) {
-        this.apiKey = apiKey;
     }
 
     public int getWidth() {

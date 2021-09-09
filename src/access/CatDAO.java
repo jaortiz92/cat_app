@@ -99,7 +99,23 @@ public class CatDAO {
         return catsFavourites;
     }
 
-    public void removeCatFavourite(CatFavourite catFavourite){
-
+    public boolean removeCatFavourite(CatFavourite catFavourite){
+        OkHttpClient client = new OkHttpClient();
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url("https://api.thecatapi.com/v1/favourites/" + catFavourite.getId())
+                .method("DELETE", body)
+                .addHeader("x-api-key", catFavourite.getApiKey())
+                .build();
+        try {
+            Response response = client.newCall(request).execute();
+            if (response.code() == 200){
+                return true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

@@ -20,7 +20,7 @@ public class CatService {
 
     public Cat showCats(){
         Cat cat = catDAO.getCat();
-        Image image = null;
+        Image image;
         try {
             URL url = new URL(cat.getUrl());
             image = ImageIO.read(url);
@@ -46,7 +46,7 @@ public class CatService {
             catSelected = catsFavourites.get(random);
         }
 
-        Image image = null;
+        Image image;
         try {
             URL url = new URL(catSelected.getImageX().getUrl());
             image = ImageIO.read(url);
@@ -70,7 +70,7 @@ public class CatService {
         return  backgroundCat;
     }
 
-    public void removeCatFavorite(CatFavourite catFavourite){
-                
+    public boolean removeCatFavorite(CatFavourite catFavourite){
+        return catDAO.removeCatFavourite(catFavourite);
     }
 }

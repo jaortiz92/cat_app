@@ -39,13 +39,13 @@ public class View {
                 case 0:
                     while (flag){
                         cat = catService.showCats();
-                        flag = menuLookCat(cat);
+                        flag = menuLookCat();
                     }
                     break;
                 case 1:
                     while (flag) {
                         catFavourite = catService.lookFavourites(new Cat().getApiKey());
-                        flag = menuLookCatFavorite(catFavourite);
+                        flag = menuLookCatFavorite();
                     }
                     break;
                 case 2:
@@ -56,7 +56,7 @@ public class View {
     }
 
 
-    public boolean menuLookCat(Cat cat) {
+    public boolean menuLookCat() {
         boolean flag = true;
         int selection = -1;
         String menu = "Options:" +
@@ -82,7 +82,6 @@ public class View {
                 } else {
                     JOptionPane.showMessageDialog(null, "The picture was not added to favourites");
                 }
-
                 break;
             case 2:
                 flag = false;
@@ -93,7 +92,7 @@ public class View {
     }
 
 
-    public boolean menuLookCatFavorite(CatFavourite cat) {
+    public boolean menuLookCatFavorite() {
         boolean flag = true;
         int selection = -1;
         String menu = "Options:" +
@@ -101,8 +100,8 @@ public class View {
                 "\n\t2. Remove favorite" +
                 "\n\t3. Go back";
         String[] buttons = {"Look other cat favorite", "Remove favorite", "Go back"};
-        String idCat = cat.getId();
-        String option = (String) JOptionPane.showInputDialog(null, menu, idCat, JOptionPane.INFORMATION_MESSAGE, cat.getImage(), buttons, buttons[0]);
+        String idCat = catFavourite.getId();
+        String option = (String) JOptionPane.showInputDialog(null, menu, idCat, JOptionPane.INFORMATION_MESSAGE, catFavourite.getImage(), buttons, buttons[0]);
 
         for(int i = 0; i < buttons.length; i++){
             if(option.equals(buttons[i])){
@@ -114,6 +113,11 @@ public class View {
             case 0:
                 break;
             case 1:
+                if (catService.removeCatFavorite(catFavourite)) {
+                    JOptionPane.showMessageDialog(null, "The picture was removed of favourites");
+                } else {
+                    JOptionPane.showMessageDialog(null, "The picture was not removed of favourites");
+                }
                 break;
             case 2:
                 flag = false;

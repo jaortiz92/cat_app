@@ -7,6 +7,7 @@ public class CatFavourite {
     private String image_id;
     private ImageX imageX;
     private ImageIcon image;
+    private final String apiKey = "06eadb5f-9094-4bc4-b2ae-9a8ec241c4ab";
 
     public CatFavourite(String id, String image_id, ImageX imageX) {
         this.id = id;
@@ -44,5 +45,9 @@ public class CatFavourite {
 
     public void setImage(ImageIcon image) {
         this.image = image;
+    }
+
+    public String getApiKey() {
+        return apiKey;
     }
 }
