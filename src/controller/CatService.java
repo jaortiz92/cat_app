@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import Model.Cat;
-import Model.CatFavourite;
+import model.Cat;
+import model.CatFavourite;
 import access.CatDAO;
 
 import javax.imageio.ImageIO;

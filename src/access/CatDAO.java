@@ -1,10 +1,10 @@
 package access;
 
-import Model.Cat;
+import model.Cat;
 
 
-import Model.CatFavourite;
-import Model.ImageX;
+import model.CatFavourite;
+import model.ImageX;
 import com.squareup.okhttp.*;
 import org.json.JSONArray;
 import org.json.JSONObject;

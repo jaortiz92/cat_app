@@ -1,11 +1,10 @@
-package View;
+package view;
 
-import Controller.CatService;
-import Model.Cat;
-import Model.CatFavourite;
+import controller.CatService;
+import model.Cat;
+import model.CatFavourite;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class View {
 
